@@ -1,0 +1,23 @@
+server:
+  port: 80
+  error:
+    include-message: always
+
+logging:
+  level:
+    root: INFO
+    com:
+      jpworks:
+        datajdbc: DEBUG
+    sql: DEBUG
+
+spring:
+  profiles:
+    active: local
+
+  datasource:
+    url: ${DATABASE_URL:my-database-url}
+    username: ${DATABASE_USER:my-database-user}
+    password: ${DATABASE_PASSWORD:my-password}
+    hikari:
+      maximum-pool-size: 2
