@@ -6,7 +6,7 @@ Spring Cloud Function and Azure Functions development. Domain driven design appr
 The tech stack for this POC is:
 * Spring Boot 2.4.4
 * Java 11
-* Spring Data JDBC 2
+* Spring Data JDBC 2 
 * Postgresql Cloud 
 * Azure Functions
 * Azure Key-Vault
@@ -69,7 +69,7 @@ POST data:
 
 Deploy the application on Azure Functions with the Azure Function Maven plug-in:
 ```bash
-mvn azure-functions:run
+mvn azure-functions:deploy
 ```
 
 Add Key-Vault references to the created Function App to provide the application with the database connection data.
