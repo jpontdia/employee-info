@@ -14,6 +14,7 @@ The tech stack for this POC is:
 ### Local environment requirements
 * Java 8 JDK
 * [Maven 3.X](https://maven.apache.org/download.cgi)
+* Azure Account (free trial would suffice as well).
 * [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * Azure Sql DB instance / Postgresql
