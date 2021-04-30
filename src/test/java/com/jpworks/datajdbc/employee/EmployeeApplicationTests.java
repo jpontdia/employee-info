@@ -39,7 +39,7 @@ class EmployeeApplicationTests {
 				.fromDate(LocalDate.of(2020, 5, 1))
 				.toDate(null)
 				.build();
-		var addressMap = new HashMap<LocalDate, Address>();
+		HashMap<LocalDate, Address> addressMap = new HashMap<>();
 		addressMap.put(address1.getFromDate(), address1);
 		addressMap.put(address2.getFromDate(), address2);
 
@@ -54,7 +54,7 @@ class EmployeeApplicationTests {
 				.salary(160000)
 				.build();
 
-		var salaryMap = new HashMap<LocalDate, Salary>();
+		HashMap<LocalDate, Salary> salaryMap = new HashMap<>();
 		salaryMap.put(salary1.getFromDate(), salary1);
 		salaryMap.put(salary2.getFromDate(), salary2);
 

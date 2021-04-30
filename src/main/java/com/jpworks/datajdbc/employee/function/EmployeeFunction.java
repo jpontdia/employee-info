@@ -17,7 +17,6 @@ public class EmployeeFunction implements Function<Employee, Optional<Employee>> 
     EmployeeRepository employeeRepository;
 
     public Optional<Employee> apply(Employee employee) {
-        log.info("This message is in the function");
         return employeeRepository.findById(employee.getId());
     }
 }

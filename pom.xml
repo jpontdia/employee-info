@@ -12,7 +12,7 @@
     </parent>
     <groupId>com.jpworks</groupId>
     <artifactId>employee-info</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>employee-info</name>
     <description>Employee services with Spring Cloud Function on top of Azure Functions. Spring Boot 2.4.4 with Spring
         Data JDBC 2
@@ -20,7 +20,7 @@
     <properties>
         <!-- Project configuration -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>1.8</java.version>
         <springboot.version>2.4.4</springboot.version>
 
         <!-- Docker configuration -->
@@ -57,11 +57,12 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- PostgreSQL -->
+        <!-- Azure SQL DB -->
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>9.2.1.jre8</version>
+            <!-- <version>9.2.1.jre11</version> -->
         </dependency>
 
         <!-- Test dependencies -->
@@ -139,7 +140,7 @@
                     <region>${functionAppRegion}</region>
                     <runtime>
                         <os>linux</os>
-                        <javaVersion>11</javaVersion>
+                        <javaVersion>${java.version}</javaVersion>
                     </runtime>
                     <appSettings>
                         <!-- Run Azure Function from package file by default -->

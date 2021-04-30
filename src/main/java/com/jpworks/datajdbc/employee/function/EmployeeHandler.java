@@ -16,7 +16,7 @@ public class EmployeeHandler extends  FunctionInvoker<Employee, Employee> {
             @HttpTrigger(name = "request", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
                     HttpRequestMessage<Optional<Employee>> request,
                     ExecutionContext context) {
-        var employee = request.getBody()
+        Employee employee = request.getBody()
                 .filter((e -> e.getId() != null))
                 .orElseGet(() -> Employee.builder().id(
                                     Long.valueOf(request.getQueryParameters().getOrDefault("id", "0"))).build()

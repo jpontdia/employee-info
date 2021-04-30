@@ -1,28 +1,33 @@
 # employee-info
 *Employee Services*
 
-Spring Cloud Function and Azure Functions development. Domain driven design approach using a root aggregate. 
+Spring Cloud Function with Azure Functions development - Domain driven design approach using a root aggregate. 
 
 The tech stack for this POC is:
 * Spring Boot 2.4.4
-* Java 11
-* Spring Data JDBC 2 
-* Postgresql Cloud 
+* Java 8
+* Spring Data JDBC 2
+* Azure SQL DB or Postgresql
 * Azure Functions
 * Azure Key-Vault
  
 ### Local environment requirements
-* Java 11 JDK - https://openjdk.java.net/projects/jdk/11/
-* Maven - https://maven.apache.org/download.cgi
-* Postgresql - https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
-* Azure CLI - https://docs.microsoft.com/en-us/cli/azure/install-azure-cli
+* Java 8 JDK
+* [Maven 3.X](https://maven.apache.org/download.cgi)
+* [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash)
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* Azure Sql DB instance / Postgresql
 
 ### Database
 Next is the database entity model:
 
 ![Database Diagram](/doc/EntityModel.png)
 
-The database script is here [script](/doc/database.sql)
+The database script is here:
+*[Azure SQL DB](/db/create-database-mssql.sql)
+*[postgresql](/db/create-database-postgresql.sql)
+
+Example data for the tables: [data-script](/db/data-script.sql)
 
 ### Running the application locally
 In order to run the application in your computer, three environment variables must be provided
