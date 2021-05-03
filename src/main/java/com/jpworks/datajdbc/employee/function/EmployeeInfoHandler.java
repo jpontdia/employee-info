@@ -9,9 +9,10 @@ import org.springframework.cloud.function.adapter.azure.FunctionInvoker;
 
 import java.util.Optional;
 
-public class EmployeeHandler extends  FunctionInvoker<Employee, Employee> {
+@SuppressWarnings("unused")
+public class EmployeeInfoHandler extends  FunctionInvoker<Employee, Employee> {
 
-    @FunctionName("employee-info")
+    @FunctionName("employeeInfo")
     public HttpResponseMessage execute(
             @HttpTrigger(name = "request", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
                     HttpRequestMessage<Optional<Employee>> request,
@@ -21,7 +22,7 @@ public class EmployeeHandler extends  FunctionInvoker<Employee, Employee> {
                 .orElseGet(() -> Employee.builder().id(
                                     Long.valueOf(request.getQueryParameters().getOrDefault("id", "0"))).build()
                             );
-        context.getLogger().info("Azure function. Employee id: " + employee.getId() );
+        context.getLogger().info("Azure handler,  Employee id: " + employee.getId() );
         return request
                 .createResponseBuilder(HttpStatus.OK)
                 .body(handleRequest(employee, context))

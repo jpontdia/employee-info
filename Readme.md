@@ -10,9 +10,11 @@ The tech stack for this POC is:
 * Azure SQL DB or Postgresql
 * Azure Functions
 * Azure Key-Vault
- 
+
+Default configuration for the application: JDK 8 and Azure SQL DB
+
 ### Local environment requirements
-* Java 8 JDK
+* Java JDK 8 or 11
 * [Maven 3.X](https://maven.apache.org/download.cgi)
 * Azure Account (free trial would suffice as well).
 * [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash)
@@ -61,7 +63,7 @@ POST data:
 
 Run the application with Azure Function Plugin:
 ```bash
-mvn azure-functions:run
+mvn package azure-functions:run
 ```
 
 Test the application:

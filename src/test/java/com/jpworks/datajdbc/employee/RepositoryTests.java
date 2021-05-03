@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 @SpringBootTest
-class EmployeeApplicationTests {
+class RepositoryTests {
 
 	@Autowired
 	EmployeeRepository employeeRepository;
@@ -29,13 +29,13 @@ class EmployeeApplicationTests {
 		log.info("Current number of employee records: {}", currentRecords);
 
 		Address address1 = Address.builder()
-				.address("405 Wisconsin Ave Lynn Haven, Florida(FL), 32444")
+				.fullAddress("405 Wisconsin Ave Lynn Haven, Florida(FL), 32444")
 				.fromDate(LocalDate.of(2020, 2, 1))
 				.toDate(LocalDate.of(2020, 4, 30))
 				.build();
 
 		Address address2 = Address.builder()
-				.address("6001 Farm To Market Rd, Cattaraugus, New York(NY), 14719")
+				.fullAddress("6001 Farm To Market Rd, Cattaraugus, New York(NY), 14719")
 				.fromDate(LocalDate.of(2020, 5, 1))
 				.toDate(null)
 				.build();
@@ -46,12 +46,12 @@ class EmployeeApplicationTests {
 		Salary salary1 = Salary.builder()
 				.fromDate(LocalDate.of(2020, 1, 1))
 				.toDate(LocalDate.of(2020, 4, 30))
-				.salary(150000)
+				.wage(150000)
 				.build();
 
 		Salary salary2 = Salary.builder()
 				.fromDate(LocalDate.of(2020, 5, 1))
-				.salary(160000)
+				.wage(160000)
 				.build();
 
 		HashMap<LocalDate, Salary> salaryMap = new HashMap<>();
@@ -92,12 +92,15 @@ class EmployeeApplicationTests {
 		log.info("Current number of employee records: {}", recordsAfterDelete);
 	}
 
-	@Test
 	void optimisticLocking() {
+
+		//Set the ID row for an existing testing record, 2 threads will try to update the same record
+		Long testingId = 1L;
+
 		Exception exception = assertThrows(org.springframework.data.relational.core.conversion.DbActionExecutionException.class, () -> {
-			employeeRepository.findById(13L).ifPresent( employeeFirstThread -> {
+			employeeRepository.findById(testingId).ifPresent( employeeFirstThread -> {
 				employeeFirstThread.setPhone("222");
-				employeeRepository.findById(13L).ifPresent( employeeSecondThread -> {
+				employeeRepository.findById(testingId).ifPresent( employeeSecondThread -> {
 					employeeSecondThread.setPhone("333");
 					employeeRepository.save(employeeSecondThread);
 					employeeRepository.save(employeeFirstThread);

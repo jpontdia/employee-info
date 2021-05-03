@@ -10,12 +10,13 @@ import org.springframework.boot.info.BuildProperties;
 @SpringBootApplication
 @Slf4j
 public class EmployeeApplication implements CommandLineRunner {
+
 	@Autowired
 	BuildProperties buildProperties;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EmployeeApplication.class, args);
-	}
+		}
 
 	@Override
 	public void run(String... args) {

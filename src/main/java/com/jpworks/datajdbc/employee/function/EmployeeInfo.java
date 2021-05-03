@@ -11,12 +11,14 @@ import java.util.function.Function;
 
 @Component
 @Slf4j
-public class EmployeeFunction implements Function<Employee, Optional<Employee>> {
+@SuppressWarnings("unused")
+public class EmployeeInfo implements Function<Employee, Optional<Employee>> {
 
     @Autowired
     EmployeeRepository employeeRepository;
 
     public Optional<Employee> apply(Employee employee) {
+        log.info("Employee query received in Spring Function: {}", employee);
         return employeeRepository.findById(employee.getId());
     }
 }
