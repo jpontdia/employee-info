@@ -226,11 +226,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <excludes>
-                        <exclude>**/*EmployeeInfoHandler.*</exclude>
-                    </excludes>
-                </configuration>
             </plugin>
 
             <plugin>

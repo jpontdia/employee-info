@@ -43,7 +43,13 @@ for database connection:
  
 On Windows, set the environment variables with:
 ```
+//POSTGRESQL
 set DATABASE_URL=jdbc:postgresql://ec2-54.compute-1.amazonaws.com:5432/dcfcb4766bbcc
+
+//AZURE SQL DB
+set DATABASE_URL=jdbc:sqlserver://MY-DATABASE-SERVER.database.windows.net:1433;databaseName=MY-DATABASE-NAME
+
+//COMMON CONFIGURATION
 set DATABASE_USER=myuser
 set DATABASE_PASSWORD=mypassword
 ```
@@ -55,10 +61,10 @@ mvn clean package spring-boot:run
 
 Test the application:
 ```
-POST http://localhost/api/employee-info
+POST http://localhost/api/employeeInfo
 
 POST data:
-{"id": 5}
+{"id": 2}
 ```
 
 Run the application with Azure Function Plugin:
@@ -68,10 +74,10 @@ mvn package azure-functions:run
 
 Test the application:
 ```
-POST http://localhost:7071/api/employee-info
+POST http://localhost:7071/api/employeeInfo
 
 POST data:
-{"id": 5}
+{"id": 2}
 ```
 ### Deploying to Azure Functions
 
@@ -100,8 +106,8 @@ Another example about how to set up Key Vault references:
 
 Test the application:
 ```
-POST https://<YOUR_SPRING_FUNCTION_NAME>.azurewebsites.net/api/employee-info
+POST https://<YOUR_SPRING_FUNCTION_NAME>.azurewebsites.net/api/employeeInfo
 
 POST data:
-{"id": 5}
+{"id": 2}
 ```
