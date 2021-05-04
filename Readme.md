@@ -6,6 +6,7 @@ Spring Cloud Function with Azure Functions development - Domain driven design ap
 The tech stack for this POC is:
 * Spring Boot 2.4.4
 * Java 8
+* Sonarqube  
 * Spring Data JDBC 2
 * Azure SQL DB or Postgresql
 * Azure Functions

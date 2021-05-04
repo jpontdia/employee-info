@@ -2,7 +2,6 @@ package com.jpworks.datajdbc.employee;
 
 import com.jpworks.datajdbc.employee.vo.Employee;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -23,7 +22,6 @@ class FunctionTests {
 
         given()
                 .contentType("application/json")
-                //.body("{\"id\": 1}")
                 .body(queryEmployee)
                 .when()
                     .post("http://localhost:" + port + "/employeeInfo")

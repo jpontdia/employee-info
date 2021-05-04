@@ -90,7 +90,6 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -122,13 +121,17 @@
                     <region>${functionAppRegion}</region>
                     <runtime>
                         <os>linux</os>
-                        <javaVersion>${java.version}</javaVersion>
+                        <javaVersion>11</javaVersion>
                     </runtime>
                     <appSettings>
                         <!-- Run Azure Function from package file by default -->
                         <property>
                             <name>FUNCTIONS_EXTENSION_VERSION</name>
                             <value>~3</value>
+                        </property>
+                        <property>
+                            <name>FUNCTIONS_WORKER_RUNTIME</name>
+                            <value>java</value>
                         </property>
                     </appSettings>
                 </configuration>
@@ -228,6 +231,7 @@
                 </executions>
             </plugin>
 
+            <!--Spring boot plug-in, generation of thin artifacts, and provide pom info to components  -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
