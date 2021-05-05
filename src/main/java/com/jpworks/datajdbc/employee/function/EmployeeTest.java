@@ -14,6 +14,9 @@ import java.util.function.Function;
 public class EmployeeTest implements Function<Employee, Optional<Employee>> {
 
     public Optional<Employee> apply(Employee employee) {
-        return Optional.of(Employee.builder().lastName("This is a demo employee").build());
+        Employee response = new Employee();
+        response.setFirstName("John");
+        response.setLastName("Test");
+        return Optional.of(employee);
     }
 }

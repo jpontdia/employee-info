@@ -19,9 +19,11 @@ public class EmployeeInfoHandler extends  FunctionInvoker<Employee, Employee> {
                     ExecutionContext context) {
         Employee employee = request.getBody()
                 .filter((e -> e.getId() != null))
-                .orElseGet(() -> Employee.builder().id(
-                                    Long.valueOf(request.getQueryParameters().getOrDefault("id", "0"))).build()
-                            );
+                .orElseGet(() -> {
+                    Employee queryEmployee = new Employee();
+                    queryEmployee.setId(Long.valueOf(request.getQueryParameters().getOrDefault("id", "0")));
+                    return queryEmployee;
+                });
         context.getLogger().info("Azure handler,  Employee id: " + employee.getId() );
         return request
                 .createResponseBuilder(HttpStatus.OK)

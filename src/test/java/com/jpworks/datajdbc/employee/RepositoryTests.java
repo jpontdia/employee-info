@@ -58,17 +58,15 @@ class RepositoryTests {
 		salaryMap.put(salary1.getFromDate(), salary1);
 		salaryMap.put(salary2.getFromDate(), salary2);
 
-
-		Employee employee = Employee.builder()
-				.firstName("Arjun")
-				.lastName("Mahoney")
-				.birthDate(LocalDate.of(1996,9,1))
-				.hireDate(LocalDate.of(1970,1,1))
-				.gender(Gender.M)
-				.addresses(addressMap)
-				.salaries(salaryMap)
-				.status(EmployeeStatus.A)
-				.build();
+		Employee employee = new Employee();
+		employee.setFirstName("Arjun");
+		employee.setLastName("Mahoney");
+		employee.setBirthDate(LocalDate.of(1996,9,1));
+		employee.setHireDate(LocalDate.of(1970,1,1));
+		employee.setGender(Gender.M);
+		employee.setAddresses(addressMap);
+		employee.setSalaries(salaryMap);
+		employee.setStatus(EmployeeStatus.A);
 
 		//Create
 		employeeRepository.save(employee);
@@ -113,24 +111,22 @@ class RepositoryTests {
 
 	@Test
 	void findByLastName(){
-		Employee employee1 = Employee.builder()
-				.firstName("Jhon 1")
-				.lastName("MyFakeLastName")
-				.birthDate(LocalDate.now())
-				.hireDate(LocalDate.now())
-				.gender(Gender.M)
-				.status(EmployeeStatus.I)
-				.build();
+		Employee employee1 = new Employee();
+		employee1.setFirstName("Jhon 1");
+		employee1.setLastName("MyFakeLastName");
+		employee1.setBirthDate(LocalDate.now());
+		employee1.setHireDate(LocalDate.now());
+		employee1.setGender(Gender.M);
+		employee1.setStatus(EmployeeStatus.I);
 		employeeRepository.save(employee1);
 
-		Employee employee2 = Employee.builder()
-				.firstName("Jhon 2")
-				.lastName("MyFakeLastName")
-				.birthDate(LocalDate.now())
-				.hireDate(LocalDate.now())
-				.gender(Gender.M)
-				.status(EmployeeStatus.I)
-				.build();
+		Employee employee2 = new Employee();
+		employee2.setFirstName("Jhon 2");
+		employee2.setLastName("MyFakeLastName");
+		employee2.setBirthDate(LocalDate.now());
+		employee2.setHireDate(LocalDate.now());
+		employee2.setGender(Gender.M);
+		employee2.setStatus(EmployeeStatus.I);
 		employeeRepository.save(employee2);
 
 		List<Employee> listEmployee = employeeRepository.findByLastName("MyFakeLastName");

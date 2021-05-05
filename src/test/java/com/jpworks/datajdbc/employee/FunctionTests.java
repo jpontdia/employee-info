@@ -18,7 +18,8 @@ class FunctionTests {
 
     @Test
     void EmployeeInfoTest(){
-        Employee queryEmployee = Employee.builder().id(1L).build();
+        Employee queryEmployee = new Employee();
+        queryEmployee.setId(1L);
 
         given()
                 .contentType("application/json")
@@ -32,7 +33,8 @@ class FunctionTests {
 
     @Test
     void EmployeeTest(){
-        Employee queryEmployee = Employee.builder().id(1L).build();
+        Employee queryEmployee = new Employee();
+        queryEmployee.setId(1L);
 
         given()
                 .contentType("application/json")
