@@ -12,7 +12,7 @@
     </parent>
     <groupId>com.jpworks</groupId>
     <artifactId>employee-info</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <name>employee-info</name>
     <description>Employee services with Spring Cloud Function on top of Azure Functions</description>
     <properties>
