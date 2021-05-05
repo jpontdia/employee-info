@@ -7,9 +7,9 @@ trigger:
 - main
 
 variables:
-  DATABASE_URL: $(DATABASE_URL)
-  DATABASE_PASSWORD: $(DATABASE_PASSWORD)
-  DATABASE_USER: $(DATABASE_USER)
+  DATABASE_URL: $(DB_URL)
+  DATABASE_PASSWORD: $(DB_PASSWORD)
+  DATABASE_USER: $(DB_USER)
 
 pool:
   vmImage: ubuntu-latest
