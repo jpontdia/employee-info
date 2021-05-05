@@ -43,7 +43,7 @@ class FunctionTests {
                 .post("http://localhost:" + port + "/employeeTest")
                 .then()
                 .assertThat()
-                .body(containsString("This is a demo employee"));
+                .body(containsString("John"));
     }
 
 }
