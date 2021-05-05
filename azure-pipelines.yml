@@ -9,6 +9,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  DATABASE_URL: $(DATABASE_URL)
+  DATABASE_PASSWORD: $(DATABASE_PASSWORD)
+  DATABASE_USER: $(DATABASE_USER)
+
 steps:
 - task: Maven@3
   inputs:
