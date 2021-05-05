@@ -6,13 +6,13 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
-
 variables:
   DATABASE_URL: $(DATABASE_URL)
   DATABASE_PASSWORD: $(DATABASE_PASSWORD)
   DATABASE_USER: $(DATABASE_USER)
+
+pool:
+  vmImage: ubuntu-latest
 
 steps:
 - task: Maven@3
