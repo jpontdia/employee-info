@@ -8,6 +8,7 @@ The tech stack for this POC is:
 * Java 8
 * Sonarqube  
 * Spring Data JDBC 2
+* CICD Azure Devops  
 * Azure SQL DB or Postgresql
 * Azure Functions
 * Azure Key-Vault
@@ -62,7 +63,7 @@ mvn clean package spring-boot:run
 
 Test the application:
 ```
-POST http://localhost/api/employeeInfo
+POST http://localhost:8080/employeeInfo
 
 POST data:
 {"id": 2}

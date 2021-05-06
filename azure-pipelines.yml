@@ -10,6 +10,7 @@ variables:
   DATABASE_URL: $(TESTDB_URL)
   DATABASE_PASSWORD: $(TESTDB_PASSWORD)
   DATABASE_USER: $(TESTDB_USER)
+  SONAR_TOKEN: $(SONARTOKEN)
 
 pool:
   vmImage: ubuntu-latest
@@ -24,4 +25,4 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package azure-functions:deploy'
+    goals: 'package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar azure-functions:deploy'

@@ -23,13 +23,15 @@ public class EmployeeInfo implements Function<Employee, Optional<Employee>> {
 
     public Optional<Employee> apply(Employee employee) {
         log.info("Employee query received in Spring Function {}", employee);
-        Optional<Employee> result = employeeRepository.findById(employee.getId());
-        String apiVersion = buildProperties.getGroup()
+        return employeeRepository.findById(employee.getId())
+            .map(employeeVersioned -> {
+                String apiVersion = buildProperties.getGroup()
                         + ":" + buildProperties.getArtifact()
                         + ":" +  buildProperties.getName()
                         + ":" +  buildProperties.getVersion()
                         + ", " + buildProperties.getTime();
-        result.get().setApiVersion(apiVersion);
-        return result;
+                employeeVersioned.setApiVersion(apiVersion);
+                return employeeVersioned;
+        });
     }
 }
