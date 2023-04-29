@@ -4,7 +4,7 @@
 Spring Cloud Function with Azure Functions development - Domain driven design approach using a root aggregate. 
 
 The tech stack for this POC is:
-* Spring Boot 2.4.4
+* Spring Boot 2.4.4 
 * Java 8
 * Sonarqube  
 * Spring Data JDBC 2
